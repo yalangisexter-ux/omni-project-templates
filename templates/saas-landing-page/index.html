@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraSaaS | Autonomous Cloud & AI Workflow Orchestration</title>
+  <meta name="description" content="Next-generation autonomous AI operations platform for high-velocity software teams. Zero config, infinite scale.">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#EEF2FF',
+              500: '#6366F1',
+              600: '#4F46E5',
+              700: '#4338CA',
+            },
+            cyan: {
+              500: '#06B6D4',
+              600: '#0891B2',
+            },
+            dark: {
+              900: '#0B0F19',
+              800: '#111827',
+              700: '#1F2937',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow-bg {
+      background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 100%);
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <aside aria-label="Announcement" class="bg-gradient-to-r from-brand-600 to-cyan-600 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
+    🚀 Launch Special: Get an exclusive 10% lifetime discount on Enterprise Plans. <a href="#pricing" class="underline hover:text-slate-200">Claim Offer &rarr;</a>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 glass">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-brand-500/30">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white">Aura<span class="text-cyan-500">SaaS</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#features" class="hover:text-white transition">Features</a>
+        <a href="#architecture" class="hover:text-white transition">Architecture</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </nav>
+
+      <!-- Header CTAs -->
+      <div class="flex items-center gap-4">
+        <a href="#pricing" class="hidden sm:inline-block text-sm font-medium text-slate-300 hover:text-white transition">Sign In</a>
+        <a href="#pricing" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-500 to-cyan-500 text-white text-sm font-semibold shadow-md shadow-brand-500/20 hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] transition">Start Free Trial</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-24 pb-20 overflow-hidden glow-bg">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-300 text-xs font-semibold mb-8">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        Antigravity 2.0 Autonomous Engine Released
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
+        Orchestrate Cloud Workflows with <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-cyan-400 to-indigo-300">Autonomous Intelligence</span>
+      </h1>
+
+      <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        Eliminate DevOps friction. AuraSaaS continuously fine-tunes, tests, and deploys scalable microservices, private models, and web applications with 99.99% automated reliability.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-cyan-500 text-white font-bold text-base shadow-xl shadow-brand-500/25 hover:shadow-cyan-500/30 hover:scale-105 transition duration-200">
+          Get Started in 60 Seconds
+        </a>
+        <a href="#features" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-200 font-semibold text-base hover:bg-slate-700 transition duration-200 flex items-center justify-center gap-2">
+          <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+          Watch 2-Min Demo
+        </a>
+      </div>
+
+      <!-- Trust Logos -->
+      <div class="mt-16 pt-10 border-t border-slate-800/80">
+        <p class="text-xs uppercase font-semibold text-slate-500 tracking-wider">Trusted by engineers at innovative startups worldwide</p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-10 opacity-60 grayscale hover:grayscale-0 transition duration-300">
+          <span class="font-bold text-lg text-slate-300 tracking-wider">CLOUDSCALE</span>
+          <span class="font-bold text-lg text-slate-300 tracking-wider">CYBERPULSE</span>
+          <span class="font-bold text-lg text-slate-300 tracking-wider">NEXUS_AI</span>
+          <span class="font-bold text-lg text-slate-300 tracking-wider">QUANTUM_SYS</span>
+          <span class="font-bold text-lg text-slate-300 tracking-wider">HYPERFLOW</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="py-24 bg-dark-800/50 relative border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-bold text-cyan-400 uppercase tracking-widest">Enterprise Architecture</h2>
+        <p class="mt-3 text-3xl md:text-4xl font-extrabold text-white">Engineered for Extreme Velocity &amp; Uptime</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="glass p-8 rounded-2xl hover:border-brand-500/50 transition group">
+          <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Continuous QLoRA Fine-Tuning</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Automatically ingest domain datasets, execute parameter-efficient LoRA adapters, and build calibrated imatrix GGUF models on schedule.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="glass p-8 rounded-2xl hover:border-cyan-500/50 transition group">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">100% Quality Assurance Guardrails</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Rigorous automated test harnesses verify formal benchmarks (ARC, HellaSwag, API health) before releasing any artifact to production.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="glass p-8 rounded-2xl hover:border-indigo-500/50 transition group">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-white transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">One-Click Client Deployers</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Drop-in OpenAI-compatible servers, Ollama Modelfiles, and native PowerShell / Bash orchestration scripts included with every build.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-bold text-brand-400 uppercase tracking-widest">Transparent Pricing</h2>
+        <p class="mt-3 text-3xl md:text-4xl font-extrabold text-white">Guaranteed Quality. Competitive 10% Discount.</p>
+        <p class="mt-4 text-slate-400 text-sm">Backed by 8 years of engineering experience and a 100% money-back satisfaction guarantee.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <!-- Starter Plan -->
+        <div class="glass p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white">Starter</h3>
+            <p class="text-slate-400 text-xs mt-1">For lean startups & prototypes</p>
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white">$180</span>
+              <span class="text-slate-400 text-xs line-through">$200</span>
+              <span class="text-slate-400 text-xs">/ delivery</span>
+            </div>
+            <ul class="mt-8 space-y-3 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Responsive Single Page Landing Page</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Tailwind CSS + Clean Semantic Code</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Mobile & Tablet Optimized (100% Responsive)</li>
+            </ul>
+          </div>
+          <a href="#" class="mt-8 block w-full py-3 rounded-xl bg-slate-800 text-center text-sm font-semibold text-white hover:bg-slate-700 transition">Choose Starter</a>
+        </div>
+
+        <!-- Pro Plan (Featured) -->
+        <div class="glass p-8 rounded-2xl border-2 border-brand-500 relative flex flex-col justify-between shadow-2xl shadow-brand-500/20">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-brand-600 to-cyan-500 text-white text-xs font-bold uppercase tracking-wider shadow">
+            Most Popular
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Full-Stack Pro</h3>
+            <p class="text-slate-400 text-xs mt-1">Complete Web App &amp; REST APIs</p>
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white">$450</span>
+              <span class="text-slate-400 text-xs line-through">$500</span>
+              <span class="text-slate-400 text-xs">/ delivery</span>
+            </div>
+            <ul class="mt-8 space-y-3 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Frontend + FastAPI / Node REST Backend</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> SQLite / PostgreSQL Database Integration</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Docker Container + 100% Automated QA Tests</li>
+            </ul>
+          </div>
+          <a href="#" class="mt-8 block w-full py-3 rounded-xl bg-gradient-to-r from-brand-500 to-cyan-500 text-center text-sm font-semibold text-white shadow-lg shadow-brand-500/25 hover:opacity-95 transition">Choose Pro</a>
+        </div>
+
+        <!-- Enterprise Mobile / AI Plan -->
+        <div class="glass p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white">Enterprise Mobile &amp; APK</h3>
+            <p class="text-slate-400 text-xs mt-1">Cross-platform &amp; Signed Builds</p>
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white">$900</span>
+              <span class="text-slate-400 text-xs line-through">$1,000</span>
+              <span class="text-slate-400 text-xs">/ delivery</span>
+            </div>
+            <ul class="mt-8 space-y-3 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Complete Android Studio / Gradle Project</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Compiled &amp; Signed `.apk` Binary</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> GitHub Actions CI/CD Automated Build Pipeline</li>
+            </ul>
+          </div>
+          <a href="#" class="mt-8 block w-full py-3 rounded-xl bg-slate-800 text-center text-sm font-semibold text-white hover:bg-slate-700 transition">Choose Enterprise</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Capture / Contact -->
+  <section class="py-20 bg-gradient-to-b from-dark-900 to-dark-800 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-extrabold text-white">Ready to Elevate Your Product?</h2>
+      <p class="mt-4 text-slate-400 text-sm">Send your requirements. Get a high-fidelity implementation delivered in 48 hours.</p>
+
+      <form id="contactForm" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Thank you! Your requirements were submitted. We will reach out within 2 hours.');">
+        <input type="email" required placeholder="Enter your work email" class="px-5 py-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 flex-1 text-sm">
+        <button type="submit" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-cyan-500 text-white font-bold text-sm shadow hover:opacity-95 transition">Request Quote</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-slate-800 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p>&copy; 2026 AuraSaaS Inc. Engineered by Aryan Kumar (8 Years Experience). All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-300 transition">Terms of Service</a>
+        <a href="#" class="hover:text-slate-300 transition">Security Status</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+@echo off
+echo Starting Full-Stack Web Application...
+python backend\server.py 8080

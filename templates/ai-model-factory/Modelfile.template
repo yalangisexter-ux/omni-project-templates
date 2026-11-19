@@ -1,0 +1,16 @@
+FROM ./model-Q4_K_M.gguf
+
+TEMPLATE """<|im_start|>system
+{{ .System }}<|im_end|>
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.3
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+
+SYSTEM """You are a specialized AI assistant engineered for extreme domain accuracy, concise reasoning, and zero hallucination."""

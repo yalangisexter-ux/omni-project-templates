@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskPulse Pro | Autonomous Workflow Engine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white shadow-md shadow-indigo-600/30">
+          TP
+        </div>
+        <h1 class="text-lg font-bold tracking-tight">TaskPulse <span class="text-indigo-400">Pro</span></h1>
+        <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium ml-2">REST API Live</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="openModal()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow transition flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          New Task
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Metrics Bar -->
+  <main class="max-w-7xl mx-auto px-6 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
+      <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Total Tasks</p>
+        <p id="statTotal" class="text-2xl font-extrabold text-white mt-1">0</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+        <p class="text-xs font-medium text-amber-400 uppercase tracking-wider">To Do</p>
+        <p id="statTodo" class="text-2xl font-extrabold text-amber-400 mt-1">0</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+        <p class="text-xs font-medium text-sky-400 uppercase tracking-wider">In Progress</p>
+        <p id="statInProgress" class="text-2xl font-extrabold text-sky-400 mt-1">0</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+        <p class="text-xs font-medium text-emerald-400 uppercase tracking-wider">Completed</p>
+        <p id="statCompleted" class="text-2xl font-extrabold text-emerald-400 mt-1">0</p>
+      </div>
+    </div>
+
+    <!-- Kanban Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- To Do -->
+      <div class="rounded-xl bg-slate-900/60 border border-slate-800/80 p-5">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> To Do
+          </h2>
+          <span id="badgeTodo" class="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">0</span>
+        </div>
+        <div id="colTodo" class="space-y-3 min-h-[250px]"></div>
+      </div>
+
+      <!-- In Progress -->
+      <div class="rounded-xl bg-slate-900/60 border border-slate-800/80 p-5">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span> In Progress
+          </h2>
+          <span id="badgeInProgress" class="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">0</span>
+        </div>
+        <div id="colInProgress" class="space-y-3 min-h-[250px]"></div>
+      </div>
+
+      <!-- Completed -->
+      <div class="rounded-xl bg-slate-900/60 border border-slate-800/80 p-5">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Completed
+          </h2>
+          <span id="badgeCompleted" class="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-semibold">0</span>
+        </div>
+        <div id="colCompleted" class="space-y-3 min-h-[250px]"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="taskModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md p-6 shadow-2xl">
+      <h3 class="text-lg font-bold text-white mb-4">Create New Task</h3>
+      <form id="createTaskForm" onsubmit="handleCreateTask(event)">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Task Title</label>
+            <input id="inputTitle" type="text" required placeholder="e.g. Ingest client dataset" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-indigo-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Description</label>
+            <textarea id="inputDesc" rows="3" placeholder="Provide details..." class="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm focus:outline-none focus:border-indigo-500"></textarea>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Priority</label>
+              <select id="selectPriority" class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Status</label>
+              <select id="selectStatus" class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm">
+                <option value="todo" selected>To Do</option>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end gap-3">
+          <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700">Cancel</button>
+          <button type="submit" class="px-5 py-2 rounded-lg bg-indigo-600 text-white text-xs font-semibold hover:bg-indigo-500 shadow">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    async function loadTasks() {
+      try {
+        const res = await fetch('/api/tasks');
+        const data = await res.json();
+        renderTasks(data.tasks);
+        updateStats();
+      } catch (e) {
+        console.error('Failed to load tasks:', e);
+      }
+    }
+
+    async function updateStats() {
+      try {
+        const res = await fetch('/api/stats');
+        const stats = await res.json();
+        document.getElementById('statTotal').innerText = stats.total;
+        document.getElementById('statTodo').innerText = stats.todo;
+        document.getElementById('statInProgress').innerText = stats.in_progress;
+        document.getElementById('statCompleted').innerText = stats.completed;
+        document.getElementById('badgeTodo').innerText = stats.todo;
+        document.getElementById('badgeInProgress').innerText = stats.in_progress;
+        document.getElementById('badgeCompleted').innerText = stats.completed;
+      } catch (e) {}
+    }
+
+    function renderTasks(tasks) {
+      const colTodo = document.getElementById('colTodo');
+      const colInProgress = document.getElementById('colInProgress');
+      const colCompleted = document.getElementById('colCompleted');
+      colTodo.innerHTML = '';
+      colInProgress.innerHTML = '';
+      colCompleted.innerHTML = '';
+
+      tasks.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'p-4 rounded-xl bg-slate-800 border border-slate-700/60 shadow hover:border-slate-500 transition cursor-pointer';
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded text-[10px] ${t.priority === 'high' ? 'bg-red-500/10 text-red-400 border border-red-500/20' : t.priority === 'medium' ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' : 'bg-slate-700 text-slate-300'}">${t.priority}</span>
+            <span class="text-[10px] text-slate-500">#${t.id}</span>
+          </div>
+          <h4 class="text-sm font-semibold text-white">${t.title}</h4>
+          <p class="text-xs text-slate-400 mt-1">${t.description || ''}</p>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500">${t.created_at || 'Just now'}</span>
+            <select onchange="updateTaskStatus(${t.id}, this.value)" class="text-[11px] bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-slate-300">
+              <option value="todo" ${t.status === 'todo' ? 'selected' : ''}>To Do</option>
+              <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>In Progress</option>
+              <option value="completed" ${t.status === 'completed' ? 'selected' : ''}>Done</option>
+            </select>
+          </div>
+        `;
+        if (t.status === 'todo') colTodo.appendChild(card);
+        else if (t.status === 'in_progress') colInProgress.appendChild(card);
+        else if (t.status === 'completed') colCompleted.appendChild(card);
+      });
+    }
+
+    async function handleCreateTask(e) {
+      e.preventDefault();
+      const title = document.getElementById('inputTitle').value;
+      const desc = document.getElementById('inputDesc').value;
+      const priority = document.getElementById('selectPriority').value;
+      const status = document.getElementById('selectStatus').value;
+
+      await fetch('/api/tasks', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({title, description: desc, priority, status})
+      });
+
+      closeModal();
+      document.getElementById('createTaskForm').reset();
+      loadTasks();
+    }
+
+    async function updateTaskStatus(id, newStatus) {
+      await fetch(`/api/tasks/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({status: newStatus})
+      });
+      loadTasks();
+    }
+
+    function openModal() { document.getElementById('taskModal').classList.remove('hidden'); }
+    function closeModal() { document.getElementById('taskModal').classList.add('hidden'); }
+
+    // Init load
+    loadTasks();
+  </script>
+</body>
+</html>

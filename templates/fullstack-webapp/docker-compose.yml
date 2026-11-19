@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  webapp:
+    build: .
+    container_name: omni-taskpulse-app
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - ENVIRONMENT=production
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
